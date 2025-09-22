@@ -1,0 +1,79 @@
+body {
+  background-color:rgb(226, 216, 230);
+  background-image: url("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/twitter/322/white-circle_26aa.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 40%;
+  font-family: Times;
+  font-style: italic;
+  font-size: 450%;
+  line-height: 1vw;
+  padding-top: 28px;
+}
+
+embed {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+}
+
+.head {
+  display: flex;
+  top: 50%;
+  justify-content: center;
+  align-items: center;
+  font-family: Times;
+  font-size: 150%;
+}
+
+a {
+  text-decoration: none;
+  color:rgb(125, 141, 209);
+}
+
+a:hover {
+  color: rgb(135, 116, 106);
+}
+
+/* Top thin scrolling banner */
+#top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: rgb(125, 141, 209);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  box-sizing: border-box;
+}
+
+.ticker {
+  font-style: normal; /* override the body’s italic */
+  white-space: nowrap;
+  will-change: transform;
+  display: inline-block;
+  padding-left: 100%;
+  font-family: 'Newsreader', serif; /* Newsreader here */
+  font-size: 26px;
+  line-height: 1;
+  color: white;
+}
+
+#top-banner:hover .ticker,
+#top-banner:focus-within .ticker {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker { transition: none !important; animation: none !important; }
+}
