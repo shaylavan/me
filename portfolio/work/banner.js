@@ -37,7 +37,7 @@
     const containerWidth = document.getElementById('top-banner').offsetWidth;
     const textWidth = textEl.offsetWidth;
     const totalWidth = textWidth * ticker.children.length;
-    const cycleLength = textWidth; // Only need to scroll one text width before resetting
+    const cycleLength = textWidth * ticker.children.length; // Only need to scroll one text width before resetting
 
     const start = parseInt(localStorage.getItem(STORAGE_KEY), 10) || Date.now();
 
@@ -45,7 +45,7 @@
     function step() {
       const elapsedMs = Date.now() - start;
       const totalPx = (elapsedMs / 1000) * SPEED_PX_PER_SEC;
-      const offset = totalPx % cycleLength;
+      const offset = (totalPx + textWidth / 2) % cycleLength;
 
       // Reset position when one full text width has been scrolled
       if (offset >= cycleLength) {
